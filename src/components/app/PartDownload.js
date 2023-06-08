@@ -3,11 +3,11 @@ import './App.css';
 import PropTypes from 'prop-types';
 import {isWeiXin} from "../../utils/navigatorUtils";
 
-const CountComponent = ({value}) => {
-    if (isNaN(value)) return null;
-    if (value >= 10000) value = (value / 10000).toFixed(1) + " components";
-    return <sup className="Gray">{value}</sup>
-}
+// const CountComponent = ({value}) => {
+//     if (isNaN(value)) return null;
+//     if (value >= 10000) value = (value / 10000).toFixed(1) + " components";
+//     return <sup className="Gray">{value}</sup>
+// }
 
 const WxMessage = () => {
     if (isWeiXin()) {
@@ -43,7 +43,7 @@ const PartDownload = ({value, downloadCount, onSvgDownload, onImgDownload}) => {
                 <div className="Qr-s-title">Downloads</div>
                 <p className="Qr-s-subtitle">
                     <span>Tải xuống mã QR — {value}</span>
-                    <CountComponent value={downloadCount} />
+                    {/* <CountComponent value={downloadCount} /> */}
                 </p>
             </div>
             <div className="Qr-Centered">

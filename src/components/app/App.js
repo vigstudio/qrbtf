@@ -7,10 +7,8 @@ import PartMore from "./PartMore";
 import PartParams from "./PartParams";
 import PartDownloadViewer from "../../containers/app/PartDownloadViewer";
 import PartStylesViewer from "../../containers/app/PartStylesViewer";
-import {getDownloadCount, login} from "../../api/TcbHandler";
 import {connect} from 'react-redux';
-import {loadDownloadData} from "../../actions";
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 import {setScrollbarWidthProp} from "../../utils/util"
 
 // ReactGA.initialize('UA-165845289-1');
@@ -32,20 +30,10 @@ import {setScrollbarWidthProp} from "../../utils/util"
 // );
 
 function App({dispatch}) {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const updateDownloadData = useCallback((downloadData) => dispatch(loadDownloadData(downloadData)), []);
+
     setScrollbarWidthProp()
 
     useEffect(() => {
-        login().then(() => {
-            getDownloadCount((res) => {
-                let downloadData = [];
-                res.data.forEach((item) => {
-                    downloadData[item.value] = item.count;
-                });
-                dispatch(loadDownloadData(downloadData));
-            });
-        })
     })
 
     return (
@@ -56,7 +44,7 @@ function App({dispatch}) {
                         <PartHeader />
                         <PartStylesViewer />
                         <PartParams />
-                        <PartDownloadViewer updateDownloadData={updateDownloadData} />
+                        <PartDownloadViewer />
                         <PartMore />
                         <PartFooter />
                     </div>

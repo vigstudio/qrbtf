@@ -32,10 +32,6 @@ export const changeParam = (rendererIndex, paramIndex, value) => {
     };
 }
 
-export const loadDownloadData = (data) => ({
-    type: actionTypes.LOAD_DOWNLOAD_DATA,
-    data
-})
 
 export const changeTitle = (title) => {
     return {
