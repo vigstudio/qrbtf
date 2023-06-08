@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import reactCSS from 'reactcss';
 import PropTypes from 'prop-types';
-import { TwitterPicker } from 'react-color';
+import {TwitterPicker} from 'react-color';
 import '../Qrcode.css';
 
-const ParamColor = ({ rendererIndex, paramIndex, value, onChange }) => {
+const ParamColor = ({rendererIndex, paramIndex, value, onChange}) => {
     const [displayColorPicker, setDisplay] = useState(false);
     const styles = reactCSS({
         'default': {
@@ -33,8 +33,8 @@ const ParamColor = ({ rendererIndex, paramIndex, value, onChange }) => {
 
     return (
         <div style={styles.container}>
-            <button className="dl-btn" style={styles.btn} onClick={ () => setDisplay(!displayColorPicker) }>
-                选择颜色
+            <button className="dl-btn" style={styles.btn} onClick={() => setDisplay(!displayColorPicker)}>
+                Chọn
             </button>
             {
                 displayColorPicker ?

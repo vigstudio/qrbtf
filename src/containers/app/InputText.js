@@ -3,7 +3,7 @@ import {genQRInfo} from "../../actions";
 import React, {useRef} from "react";
 import {isPicture} from "../../utils/imageUtils";
 import {decodeData} from "../../utils/qrcodeHandler";
-import { handleUpload, handleInputUrl } from "../../utils/gaHelper";
+import {handleUpload, handleInputUrl} from "../../utils/gaHelper";
 
 const InputText = ({dispatch}) => {
     const textRef = useRef();
@@ -18,12 +18,12 @@ const InputText = ({dispatch}) => {
                         style={{textAlign: "center"}}
                     >
                         <svg className="Qr-upload-svg" version="1.1" id="图层_1" zoomAndPan="disable"
-                             xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                             viewBox="0 -5 30 40" preserveAspectRatio="none">
+                            xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            viewBox="0 -5 30 40" preserveAspectRatio="none">
                             <g className="st0">
-                                <line x1="15" y1="0" x2="15" y2="30"/>
-                                <line x1="25" y1="10" x2="15" y2="0"/>
-                                <line x1="5" y1="10" x2="15" y2="0"/>
+                                <line x1="15" y1="0" x2="15" y2="30" />
+                                <line x1="25" y1="10" x2="15" y2="0" />
+                                <line x1="5" y1="10" x2="15" y2="0" />
                             </g>
                         </svg>
                     </label>
@@ -41,7 +41,7 @@ const InputText = ({dispatch}) => {
                                     decodeData(file).then((res) => {
                                         if (res) {
                                             textRef.current.value = res.data;
-                                            console.log(res.data)
+                                            // console.log(res.data)
                                             dispatch(genQRInfo(res.data))
                                         }
                                     }).catch(console.err);
@@ -51,7 +51,7 @@ const InputText = ({dispatch}) => {
                     />
                     <input
                         className="Qr-input big-input"
-                        placeholder="https://qrbtf.com"
+                        placeholder="https://nghiane.com"
                         ref={textRef}
                         onBlur={(e) => {
                             handleInputUrl();
@@ -67,7 +67,7 @@ const InputText = ({dispatch}) => {
                     />
                 </div>
                 <div className="Qr-input-hint">
-                    上传普通二维码或输入网址
+                    Tải lên mã QR thông thường hoặc URL đầu vào
                 </div>
             </div>
         </React.Fragment>);

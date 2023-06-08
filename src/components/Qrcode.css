@@ -394,7 +394,7 @@ td {
     -moz-appearance: none;
     -moz-text-size-adjust: 100%;
     background: var(--bg-color);
-    font-family: 'Futura', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -466,7 +466,7 @@ td {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -moz-appearance: none;
     -moz-text-size-adjust: 100%;
-    font-family: 'Futura', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     color: var(--input-font-color);
     background-color: var(--bg-color);
 }
@@ -498,7 +498,7 @@ input[type="number"]{
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -moz-appearance: none;
     -moz-text-size-adjust: 100%;
-    font-family: 'Futura', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     color: var(--input-font-color);
     font-size: 0.9em;
     border: var(--border-color) solid 2px;
@@ -515,7 +515,7 @@ input[type="number"]{
 }
 
 .Qr-input::placeholder {
-    font-family: 'Futura', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     color: var(--border-color);
 }
 
@@ -606,7 +606,7 @@ input[type="number"]{
     -moz-appearance: none;
     -moz-text-size-adjust: 100%;
     background: var(--bg-color);
-    font-family: 'Futura', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     color: var(--input-font-color);
     display: inline-block;
 }
@@ -786,7 +786,7 @@ select:-moz-focusring {
 }
 
 .twitter-picker:nth-last-child(1) input {
-    font: 15px 'Futura', sans-serif !important;
+    font: 15px 'Roboto Condensed', sans-serif !important;
     caret-color: #44d7b6;
     padding: 1px 1px 1px 8px;
     outline: none;

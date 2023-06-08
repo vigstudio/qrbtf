@@ -4,7 +4,7 @@ import '../../Qrcode.css';
 import FrameworkParam from "../FrameworkParam";
 
 const ParamCorrectLevel = ({value, onChange}) => (
-    <FrameworkParam paramName={"容错率"}>
+    <FrameworkParam paramName={"Khả năng chống lỗi"}>
         <select
             className="Qr-select"
             value={value}

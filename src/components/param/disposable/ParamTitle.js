@@ -5,8 +5,8 @@ import FrameworkParam from "../FrameworkParam";
 import {getExactValue} from "../../../utils/util";
 import ParamTitleColorViewer from "../../../containers/param/disposable/ParamTitleColorViewer";
 
-const TitleParams = ({ title, onChange }) => {
-    const { enabled, text, color, size, align } = title;
+const TitleParams = ({title, onChange}) => {
+    const {enabled, text, color, size, align} = title;
     if (getExactValue(enabled, 0)) {
         return (
             <React.Fragment>
@@ -19,7 +19,7 @@ const TitleParams = ({ title, onChange }) => {
                     />
                 </FrameworkParam>
                 <FrameworkParam paramName={"标题颜色"}>
-                    <ParamTitleColorViewer title={title} onChange={onChange}/>
+                    <ParamTitleColorViewer title={title} onChange={onChange} />
                 </FrameworkParam>
                 <FrameworkParam paramName={"标题大小"}>
                     <input
@@ -46,16 +46,16 @@ const TitleParams = ({ title, onChange }) => {
 
 const ParamTitle = ({title, onChange}) => (
     <React.Fragment>
-        <FrameworkParam paramName={"启用标题"}>
+        <FrameworkParam paramName={"Bật tiêu đề"}>
             <select
                 className="Qr-select"
                 value={title.enabled}
                 onChange={(e) => onChange({...title, enabled: e.target.value})}>
-                <option value={0}>否</option>
-                <option value={1}>是</option>
+                <option value={0}>Không</option>
+                <option value={1}>Có</option>
             </select>
         </FrameworkParam>
-        <TitleParams title={title} onChange={onChange}/>
+        <TitleParams title={title} onChange={onChange} />
     </React.Fragment>
 )
 

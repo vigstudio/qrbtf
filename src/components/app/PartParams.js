@@ -8,13 +8,13 @@ const PartParams = () => (
     <div className="Qr-titled-nobg">
         <div className="Qr-Centered title-margin">
             <div className="Qr-s-title">Parameters</div>
-            <p className="Qr-s-subtitle">参数调整</p>
+            <p className="Qr-s-subtitle">Điều chỉnh thông số</p>
         </div>
         <div className="Qr-Centered">
             <div className="Qr-div-table">
-                <ParamCorrectLevelViewer/>
-                <ParamIconViewer/>
-                <ParamListViewer/>
+                <ParamCorrectLevelViewer />
+                <ParamIconViewer />
+                <ParamListViewer />
             </div>
         </div>
     </div>

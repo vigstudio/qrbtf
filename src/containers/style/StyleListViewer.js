@@ -8,9 +8,9 @@ import RendererRandRect from "../../components/renderer/RendererRandRect";
 import Renderer25D from "../../components/renderer/Renderer25D";
 import RendererImage from "../../components/renderer/RendererImage";
 import RendererResImage from "../../components/renderer/RendererResImage";
-import { RendererRandRound, RendererRect, RendererRound } from "../../components/renderer/RendererBase";
-import { RendererLine, RendererLine2 } from "../../components/renderer/RendererLine";
-import { RendererFuncA, RendererFuncB } from "../../components/renderer/RendererFunc";
+import {RendererRandRound, RendererRect, RendererRound} from "../../components/renderer/RendererBase";
+import {RendererLine, RendererLine2} from "../../components/renderer/RendererLine";
+import {RendererFuncA, RendererFuncB} from "../../components/renderer/RendererFunc";
 import * as React from "react";
 import RendererImageFill from "../../components/renderer/RendererImageFill";
 
@@ -45,7 +45,7 @@ const mapStateToProps = state => ({
             value: style.value,
             selected: state.selectedIndex === index,
             details: style.renderer.detail,
-            renderer: <RendererViewer rendererType={style.renderer} index={index} setParamInfo={setParamInfo}/>
+            renderer: <RendererViewer rendererType={style.renderer} index={index} setParamInfo={setParamInfo} />
         }
     })
 })
@@ -60,6 +60,7 @@ const StyleListViewer = ({setParamInfo}) => {
     let res = connect(mapStateToProps, mapDispatchToProps)(StyleList)
     setParamInfo(paramInfoBuffer, paramValueBuffer);
     return res;
+
 }
 
 export default StyleListViewer;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import '../Qrcode.css';
 
-const ParamUpload = ({ rendererIndex, paramIndex, onChange }) => (
+const ParamUpload = ({rendererIndex, paramIndex, onChange}) => (
     <React.Fragment>
         <label
             htmlFor="image_upload"
@@ -10,7 +10,7 @@ const ParamUpload = ({ rendererIndex, paramIndex, onChange }) => (
             className="dl-btn ul-btn"
             style={{textAlign: "center"}}
         >
-            上传图片
+            Tải lên hình ảnh
         </label>
         <input
             type="file"

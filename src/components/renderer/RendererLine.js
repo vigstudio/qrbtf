@@ -1,10 +1,10 @@
-import React  from "react";
+import React from "react";
 import {ParamTypes} from "../../constant/ParamTypes";
 import {getTypeTable, QRPointType} from "../../utils/qrcodeHandler";
 import {createRenderer} from "../style/Renderer";
 import {rand} from "../../utils/util";
 
-function listPoints({ qrcode, params, icon }) {
+function listPoints({qrcode, params, icon}) {
     if (!qrcode) return []
 
     const nCount = qrcode.getModuleCount();
@@ -43,13 +43,13 @@ function listPoints({ qrcode, params, icon }) {
 
             if (typeTable[x][y] === QRPointType.POS_CENTER) {
                 if (posType === 0) {
-                    pointList.push(<rect width={1} height={1} key={id++} fill={posColor} x={x} y={y}/>);
+                    pointList.push(<rect width={1} height={1} key={id++} fill={posColor} x={x} y={y} />);
                 } else if (posType === 1) {
                     pointList.push(<circle key={id++} fill={posColor} cx={x + 0.5} cy={y + 0.5} r={1.5} />)
-                    pointList.push(<circle key={id++} fill="none" strokeWidth="1" stroke={posColor}  cx={x + 0.5} cy={y + 0.5} r={3} />)
+                    pointList.push(<circle key={id++} fill="none" strokeWidth="1" stroke={posColor} cx={x + 0.5} cy={y + 0.5} r={3} />)
                 } else if (posType === 2) {
                     pointList.push(<circle key={id++} fill={posColor} cx={x + 0.5} cy={y + 0.5} r={1.5} />)
-                    pointList.push(<circle key={id++} fill="none" strokeWidth="0.15" strokeDasharray="0.5,0.5" stroke={posColor}  cx={x + 0.5} cy={y + 0.5} r={3} />)
+                    pointList.push(<circle key={id++} fill="none" strokeWidth="0.15" strokeDasharray="0.5,0.5" stroke={posColor} cx={x + 0.5} cy={y + 0.5} r={3} />)
                     for (let w = 0; w < vw.length; w++) {
                         pointList.push(<circle key={id++} fill={posColor} cx={x + vw[w] + 0.5} cy={y + 0.5} r={0.5} />)
                     }
@@ -58,12 +58,12 @@ function listPoints({ qrcode, params, icon }) {
                     }
                 } else if (posType === 3) {
                     pointList.push(<circle key={id++} fill={posColor} cx={x + 0.5} cy={y + 0.5} r={1.5} />)
-                    pointList.push(<path key={id++} d={sq25} stroke={posColor} strokeWidth={100/6 * (1 - (1 - size) * 0.75)} fill="none" transform={'translate('+String(x - 2.5)+','+String(y - 2.5)+') ' + 'scale(' + String(6/100) + ',' + String(6/100) + ')'} />)
+                    pointList.push(<path key={id++} d={sq25} stroke={posColor} strokeWidth={100 / 6 * (1 - (1 - size) * 0.75)} fill="none" transform={'translate(' + String(x - 2.5) + ',' + String(y - 2.5) + ') ' + 'scale(' + String(6 / 100) + ',' + String(6 / 100) + ')'} />)
                 }
             }
             else if (typeTable[x][y] === QRPointType.POS_OTHER) {
                 if (posType === 0) {
-                    pointList.push(<rect width={1} height={1} key={id++} fill={posColor} x={x} y={y}/>);
+                    pointList.push(<rect width={1} height={1} key={id++} fill={posColor} x={x} y={y} />);
                 }
             }
             else {
@@ -84,11 +84,11 @@ function listPoints({ qrcode, params, icon }) {
                                 ava2[x + i][y] = false;
                                 available[x + i][y] = false;
                             }
-                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 0.5} y2={y + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 0.5} y2={y + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++} />)
                         }
                     }
                     if (available[x][y]) {
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5} />)
                     }
                 }
 
@@ -109,11 +109,11 @@ function listPoints({ qrcode, params, icon }) {
                                 ava2[x][y + i] = false;
                                 available[x][y + i] = false;
                             }
-                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++} />)
                         }
                     }
                     if (available[x][y]) {
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5} />)
                     }
                 }
                 if (type === 2) {
@@ -122,7 +122,7 @@ function listPoints({ qrcode, params, icon }) {
                         let end = 0;
                         let ctn = true;
                         while (ctn && y + end < nCount) {
-                            if (qrcode.isDark(x, y + end) && ava2[x][y + end] && end - start <=3) {
+                            if (qrcode.isDark(x, y + end) && ava2[x][y + end] && end - start <= 3) {
                                 end++;
                             } else {
                                 ctn = false;
@@ -133,7 +133,7 @@ function listPoints({ qrcode, params, icon }) {
                                 ava2[x][y + i] = false;
                                 available[x][y + i] = false;
                             }
-                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++} />)
                         }
                     }
                     if (x === 0 || (x > 0 && (!qrcode.isDark(x - 1, y) || !ava2[x - 1][y]))) {
@@ -141,7 +141,7 @@ function listPoints({ qrcode, params, icon }) {
                         let end = 0;
                         let ctn = true;
                         while (ctn && x + end < nCount) {
-                            if (qrcode.isDark(x + end, y) && ava2[x + end][y] && end - start <=3) {
+                            if (qrcode.isDark(x + end, y) && ava2[x + end][y] && end - start <= 3) {
                                 end++;
                             } else {
                                 ctn = false;
@@ -152,11 +152,11 @@ function listPoints({ qrcode, params, icon }) {
                                 ava2[x + i][y] = false;
                                 available[x + i][y] = false;
                             }
-                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 0.5} y2={y + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 0.5} y2={y + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++} />)
                         }
                     }
                     if (available[x][y]) {
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5} />)
                     }
                 }
 
@@ -167,7 +167,7 @@ function listPoints({ qrcode, params, icon }) {
                             let end = 0;
                             let ctn = true;
                             while (ctn && y + end < nCount) {
-                                if (qrcode.isDark(x, y + end) && ava2[x][y + end] && end - start <=3) {
+                                if (qrcode.isDark(x, y + end) && ava2[x][y + end] && end - start <= 3) {
                                     end++;
                                 } else {
                                     ctn = false;
@@ -178,7 +178,7 @@ function listPoints({ qrcode, params, icon }) {
                                     ava2[x][y + i] = false;
                                     available[x][y + i] = false;
                                 }
-                                pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                                pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++} />)
                             }
                         }
                     } else {
@@ -187,7 +187,7 @@ function listPoints({ qrcode, params, icon }) {
                             let end = 0;
                             let ctn = true;
                             while (ctn && x + end < nCount) {
-                                if (qrcode.isDark(x + end, y) && ava2[x + end][y] && end - start <=3) {
+                                if (qrcode.isDark(x + end, y) && ava2[x + end][y] && end - start <= 3) {
                                     end++;
                                 } else {
                                     ctn = false;
@@ -198,12 +198,12 @@ function listPoints({ qrcode, params, icon }) {
                                     ava2[x + i][y] = false;
                                     available[x + i][y] = false;
                                 }
-                                pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 0.5} y2={y + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                                pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 0.5} y2={y + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++} />)
                             }
                         }
                     }
                     if (available[x][y]) {
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5} />)
                     }
                 }
                 if (type === 4) {
@@ -223,11 +223,11 @@ function listPoints({ qrcode, params, icon }) {
                                 ava2[x + i][y + i] = false;
                                 available[x + i][y + i] = false;
                             }
-                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 1 + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 1 + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++} />)
                         }
                     }
                     if (available[x][y]) {
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5} />)
                     }
                 }
                 if (type === 5) {
@@ -235,7 +235,7 @@ function listPoints({ qrcode, params, icon }) {
                         let start = 0;
                         let end = 0;
                         let ctn = true;
-                        while (ctn && x + end < nCount  && y - end >= 0) {
+                        while (ctn && x + end < nCount && y - end >= 0) {
                             if (qrcode.isDark(x + end, y - end) && available[x + end][y - end]) {
                                 end++;
                             } else {
@@ -247,11 +247,11 @@ function listPoints({ qrcode, params, icon }) {
                                 ava2[x + i][y - i] = false;
                                 available[x + i][y - i] = false;
                             }
-                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + (end - start - 1) + 0.5} y2={y - (end - start - 1) + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + (end - start - 1) + 0.5} y2={y - (end - start - 1) + 0.5} strokeWidth={size} stroke={otherColor} strokeLinecap="round" key={id++} />)
                         }
                     }
                     if (available[x][y]) {
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5} />)
                     }
                 }
                 if (type === 6) {
@@ -259,7 +259,7 @@ function listPoints({ qrcode, params, icon }) {
                         let start = 0;
                         let end = 0;
                         let ctn = true;
-                        while (ctn && x + end < nCount  && y - end >= 0) {
+                        while (ctn && x + end < nCount && y - end >= 0) {
                             if (qrcode.isDark(x + end, y - end) && ava2[x + end][y - end]) {
                                 end++;
                             } else {
@@ -270,7 +270,7 @@ function listPoints({ qrcode, params, icon }) {
                             for (let i = start; i < end; i++) {
                                 ava2[x + i][y - i] = false;
                             }
-                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + (end - start - 1) + 0.5} y2={y - (end - start - 1) + 0.5} strokeWidth={size / 2 * rand(0.3,1)} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + (end - start - 1) + 0.5} y2={y - (end - start - 1) + 0.5} strokeWidth={size / 2 * rand(0.3, 1)} stroke={otherColor} strokeLinecap="round" key={id++} />)
                         }
                     }
                     if (y === 0 || x === 0 || ((y > 0 && x > 0) && (!qrcode.isDark(x - 1, y - 1) || !available[x - 1][y - 1]))) {
@@ -288,10 +288,10 @@ function listPoints({ qrcode, params, icon }) {
                             for (let i = start; i < end; i++) {
                                 available[x + i][y + i] = false;
                             }
-                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 1 + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size / 2 * rand(0.3,1)} stroke={otherColor} strokeLinecap="round" key={id++}/>)
+                            pointList.push(<line opacity={opacity} x1={x + 0.5} y1={y + 0.5} x2={x + end - start - 1 + 0.5} y2={y + end - start - 1 + 0.5} strokeWidth={size / 2 * rand(0.3, 1)} stroke={otherColor} strokeLinecap="round" key={id++} />)
                         }
                     }
-                    pointList.push(<circle opacity={opacity} r={0.5 * rand(0.33,0.9)} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5}/>)
+                    pointList.push(<circle opacity={opacity} r={0.5 * rand(0.33, 0.9)} key={id++} fill={otherColor} cx={x + 0.5} cy={y + 0.5} />)
                 }
             }
         }
@@ -304,47 +304,47 @@ function getParamInfoLine() {
     return [
         {
             type: ParamTypes.SELECTOR,
-            key: '连线方向',
+            key: 'Sự liên quan',
             default: 2,
             choices: [
-                "左右",
-                "上下",
-                "纵横",
-                "回环",
-                "左上 — 右下",
-                "右上 — 左下",
-                "交叉"
+                "Về",
+                "lên và xuống",
+                "Thẳng đứng",
+                "Vòng",
+                "Phía trên bên trái - đáy bên phải",
+                "Phía trên bên phải -bottom trái",
+                "đi qua"
             ]
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: '连线粗细',
+            key: 'Độ dày kết nối',
             default: 50
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: '连线不透明度',
+            key: 'Kết nối mờ đục',
             default: 100,
         },
         {
             type: ParamTypes.SELECTOR,
-            key: '定位点样式',
+            key: 'Phong cách điểm định vị',
             default: 3,
             choices: [
-                "矩形",
-                "圆形",
-                "行星",
-                "圆角矩形",
+                "hình chữ nhật",
+                "Dạng hình tròn",
+                "hành tinh",
+                "Hình chữ nhật tròn",
             ]
         },
         {
             type: ParamTypes.COLOR_EDITOR,
-            key: '连线颜色',
+            key: 'Màu kết nối',
             default: '#000000'
         },
         {
             type: ParamTypes.COLOR_EDITOR,
-            key: '定位点颜色',
+            key: 'Màu điểm định vị',
             default: '#000000'
         }
     ];
@@ -354,66 +354,66 @@ function getParamInfoLine2() {
     return [
         {
             type: ParamTypes.SELECTOR,
-            key: '连线方向',
+            key: 'Sự liên quan',
             default: 6,
             choices: [
-                "左右",
-                "上下",
-                "纵横",
-                "回环",
-                "左上 — 右下",
-                "右上 — 左下",
-                "交叉"
+                "Về",
+                "lên và xuống",
+                "Dọc và ngang",
+                "Trở lại",
+                "Phía trên bên trái bên phải",
+                "Phía trên bên phải -bottom trái",
+                "đi qua"
             ]
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: '连线粗细',
+            key: 'Độ dày kết nối',
             default: 50
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: '连线不透明度',
+            key: 'Kết nối mờ đục',
             default: 100,
         },
         {
             type: ParamTypes.SELECTOR,
-            key: '定位点样式',
+            key: 'Phong cách điểm định vị',
             default: 0,
             choices: [
-                "矩形",
-                "圆形",
-                "行星",
-                "圆角矩形",
+                "Hình chữ nhật",
+                "Tròn",
+                "hành tinh",
+                "Hình chữ nhật tròn",
             ]
         },
         {
             type: ParamTypes.COLOR_EDITOR,
-            key: '连线颜色',
+            key: 'Màu kết nối',
             default: '#000000'
         },
         {
             type: ParamTypes.COLOR_EDITOR,
-            key: '定位点颜色',
+            key: 'Màu điểm định vị',
             default: '#000000'
         }
     ];
 }
 
-export const RendererLine= createRenderer({
+export const RendererLine = createRenderer({
     listPoints: listPoints,
     getParamInfo: getParamInfoLine,
 });
 
-export const RendererLine2= createRenderer({
+export const RendererLine2 = createRenderer({
     listPoints: listPoints,
     getParamInfo: getParamInfoLine2,
 });
 
 RendererLine.detail = (
-    <div>连连看，可选方向</div>
+    <div>Nhìn vào nó, hướng tùy chọn</div>
 );
 
 RendererLine2.detail = (
-    <div>交错相连</div>
+    <div>So le</div>
 );

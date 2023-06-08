@@ -5,21 +5,22 @@ import FrameworkParam from "../FrameworkParam";
 import {getExactValue} from "../../../utils/util";
 import ParamIconSrcViewer from "../../../containers/param/disposable/ParamIconSrcViewer";
 
-const IconParams = ({ icon, onBlur, onKeyPress }) => {
-    const { enabled, src, scale } = icon;
+const IconParams = ({icon, onBlur, onKeyPress}) => {
+    const {enabled, src, scale} = icon;
     const components = [];
 
-    if (getExactValue(enabled, 0) == 1) {
+    if (src) { }
+    if (getExactValue(enabled, 0) === 1) {
         components.push(
-            <FrameworkParam paramName={"图标源"}>
-                <ParamIconSrcViewer icon={icon} onChange={onBlur}/>
+            <FrameworkParam paramName={"Tải icon liên"}>
+                <ParamIconSrcViewer icon={icon} onChange={onBlur} />
             </FrameworkParam>
         );
     }
 
-    if (getExactValue(enabled, 0) != 0) {
+    if (getExactValue(enabled, 0) !== 0) {
         components.push(
-            <FrameworkParam paramName={"图标缩放"}>
+            <FrameworkParam paramName={"Tỷ lệ icon"}>
                 <input
                     type="number"
                     className="Qr-input small-input"
@@ -35,26 +36,26 @@ const IconParams = ({ icon, onBlur, onKeyPress }) => {
 
 const ParamIcon = ({icon, onBlur, onKeyPress}) => (
     <React.Fragment>
-        <FrameworkParam paramName={"图标"}>
+        <FrameworkParam paramName={"Icon giữa"}>
             <select
                 className="Qr-select"
                 defaultValue={icon.enabled}
                 onChange={(e) => onBlur({...icon, enabled: e.target.value})}>
-                <option value={0}>无</option>
-                <option value={1}>自定义</option>
-                <option value={2}>微信 — 小</option>
-                <option value={3}>微信</option>
-                <option value={4}>微信支付</option>
-                <option value={5}>支付宝</option>
+                <option value={0}>Không có</option>
+                <option value={1}>Tùy chỉnh</option>
+                {/* <option value={2}>WeChat — Nhỏ</option>
+                <option value={3}>WeChat</option>
+                <option value={4}>Thanh toán qua WeChat</option>
+                <option value={5}>Alipay</option> */}
             </select>
         </FrameworkParam>
-        <IconParams icon={icon} onBlur={onBlur} onKeyPress={onKeyPress}/>
+        <IconParams key={icon} icon={icon} onBlur={onBlur} onKeyPress={onKeyPress} />
     </React.Fragment>
 )
 
 ParamIcon.propTypes = {
     icon: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func
 }
 
 export default ParamIcon;

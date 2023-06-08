@@ -4,7 +4,7 @@ import {getTypeTable, QRPointType} from "../../utils/qrcodeHandler";
 import {createRenderer} from "../style/Renderer";
 import LinkTrace from "../link/LinkTrace";
 
-function listPoints({ qrcode, params, icon }) {
+function listPoints({qrcode, params, icon}) {
     if (!qrcode) return []
 
     const nCount = qrcode.getModuleCount();
@@ -39,22 +39,22 @@ function listPoints({ qrcode, params, icon }) {
 
             else if (typeTable[x][y] === QRPointType.POS_CENTER) {
                 if (posType === 0) {
-                    pointList.push(<rect width={1} height={1} key={id++} fill="#0B2D97" x={x} y={y}/>);
+                    pointList.push(<rect width={1} height={1} key={id++} fill="#0B2D97" x={x} y={y} />);
                 } else if (posType === 1) {
-                    pointList.push(<rect width={3 - (1 - width3)} height={3 - (1 - width3)} key={id++} fill="#0B2D97" x={x - 1 + (1 - width3)/2} y={y - 1 + (1 - width3)/2}/>);
-                    pointList.push(<rect width={width3} height={3 - (1 - width3)} key={id++} fill="#0B2D97" x={x - 3 + (1 - width3)/2} y={y - 1 + (1 - width3)/2}/>);
-                    pointList.push(<rect width={width3} height={3 - (1 - width3)} key={id++} fill="#0B2D97" x={x + 3 + (1 - width3)/2} y={y - 1 + (1 - width3)/2}/>);
-                    pointList.push(<rect width={3 - (1 - width3)} height={width3} key={id++} fill="#0B2D97" x={x - 1 + (1 - width3)/2} y={y - 3 + (1 - width3)/2}/>);
-                    pointList.push(<rect width={3 - (1 - width3)} height={width3} key={id++} fill="#0B2D97" x={x - 1 + (1 - width3)/2} y={y + 3 + (1 - width3)/2}/>);
+                    pointList.push(<rect width={3 - (1 - width3)} height={3 - (1 - width3)} key={id++} fill="#0B2D97" x={x - 1 + (1 - width3) / 2} y={y - 1 + (1 - width3) / 2} />);
+                    pointList.push(<rect width={width3} height={3 - (1 - width3)} key={id++} fill="#0B2D97" x={x - 3 + (1 - width3) / 2} y={y - 1 + (1 - width3) / 2} />);
+                    pointList.push(<rect width={width3} height={3 - (1 - width3)} key={id++} fill="#0B2D97" x={x + 3 + (1 - width3) / 2} y={y - 1 + (1 - width3) / 2} />);
+                    pointList.push(<rect width={3 - (1 - width3)} height={width3} key={id++} fill="#0B2D97" x={x - 1 + (1 - width3) / 2} y={y - 3 + (1 - width3) / 2} />);
+                    pointList.push(<rect width={3 - (1 - width3)} height={width3} key={id++} fill="#0B2D97" x={x - 1 + (1 - width3) / 2} y={y + 3 + (1 - width3) / 2} />);
                 }
             }
             else if (typeTable[x][y] === QRPointType.POS_OTHER) {
                 if (posType === 0) {
-                    pointList.push(<rect width={1} height={1} key={id++} fill="#0B2D97" x={x} y={y}/>);
+                    pointList.push(<rect width={1} height={1} key={id++} fill="#0B2D97" x={x} y={y} />);
                 }
             }
             else {
-                if (available[x][y] && ava2[x][y]  && x < nCount - 2 && y < nCount - 2) {
+                if (available[x][y] && ava2[x][y] && x < nCount - 2 && y < nCount - 2) {
                     let ctn = true;
                     for (let i = 0; i < 3; i++) {
                         for (let j = 0; j < 3; j++) {
@@ -115,8 +115,8 @@ function listPoints({ qrcode, params, icon }) {
                                 ava2[x][i] = false;
                                 available[x][i] = false;
                             }
-                            g2.push(<rect width={width2} height={end - start - 1 - (1 - width2)} key={id++} fill="#E02020" x={x + (1 - width2)/2} y={y + (1 - width2)/2}/>)
-                            g2.push(<rect width={width2} height={width2} key={id++} fill="#E02020" x={x + (1 - width2)/2} y={end - 1 + (1 - width2)/2}/>)
+                            g2.push(<rect width={width2} height={end - start - 1 - (1 - width2)} key={id++} fill="#E02020" x={x + (1 - width2) / 2} y={y + (1 - width2) / 2} />)
+                            g2.push(<rect width={width2} height={width2} key={id++} fill="#E02020" x={x + (1 - width2) / 2} y={end - 1 + (1 - width2) / 2} />)
                         }
                     }
                 }
@@ -137,12 +137,12 @@ function listPoints({ qrcode, params, icon }) {
                                 ava2[i][y] = false;
                                 available[i][y] = false;
                             }
-                            g2.push(<rect width={end - start - (1 - width2)} height={width2} key={id++} fill="#F6B506" x={x + (1 - width2)/2} y={y + (1 - width2)/2}/>)
+                            g2.push(<rect width={end - start - (1 - width2)} height={width2} key={id++} fill="#F6B506" x={x + (1 - width2) / 2} y={y + (1 - width2) / 2} />)
                         }
                     }
                 }
                 if (available[x][y]) {
-                    pointList.push(<rect width={width2} height={width2} key={id++} fill="#F6B506" x={x + (1 - width2)/2} y={y + (1 - width2)/2}/>)
+                    pointList.push(<rect width={width2} height={width2} key={id++} fill="#F6B506" x={x + (1 - width2) / 2} y={y + (1 - width2) / 2} />)
                 }
 
 
@@ -164,25 +164,25 @@ function getParamInfo() {
     return [
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: '信息点缩放',
+            key: 'Thu phóng điểm thông tin',
             default: 70,
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: 'x 宽度',
+            key: 'Chiều rộng (x)',
             default: 70,
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: '定位点宽度',
+            key: 'Chiều rộng neo',
             default: 90,
         },
         {
             type: ParamTypes.SELECTOR,
-            key: '定位点样式',
+            key: 'Kiểu mỏ neo',
             default: 1,
             choices: [
-                "矩形",
+                "Hình chữ nhật",
                 "DSJ",
             ]
         },
@@ -195,7 +195,7 @@ const RenderDSJ = createRenderer({
 })
 
 RenderDSJ.detail = (
-    <div>复刻了 DSJ 的 <LinkTrace href="https://qrbtf.com/img/dsj.jpg" rel="noopener noreferrer" target="_blank">手工作品</LinkTrace>，向时代致敬</div>
+    <div>Kiểu may thủ công, các đường kẻ giống với các đường chỉ đươc may trên vải</div>
 );
 
 export default RenderDSJ

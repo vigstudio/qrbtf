@@ -23,7 +23,7 @@ const PartMore = () => {
 
     return (
         <div className="Qr-titled-nobg">
-            <div className="Qr-Centered title-margin">
+            {/* <div className="Qr-Centered title-margin">
                 <div className="Qr-s-title">More</div>
                 <p className="Qr-s-subtitle">更多</p>
                 <div className="Qr-s-subtitle Qr-rel">
@@ -101,21 +101,21 @@ const PartMore = () => {
                     <LinkButton href={"https://qrbtf-com.mikecrm.com/J2wjEEq"} value={"反馈"}/>
                     <LinkButton href={"https://mp.weixin.qq.com/s/GFEMCWQu3e2qhTuBabnHmQ"} value={"开发"}/>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
 
-const Gallery = ({ contents }) => {
+const Gallery = ({contents}) => {
     const zoom = mediumZoom();
     const zoomRef = React.useRef(zoom);
 
     return (
         contents.map((url, index) => (
-                <LazyLoad key={'lazy_gallery_' + index} offsetVertical={200}>
-                    <ImageZoom key={'gallery_' + index} zoom={zoomRef.current} background={"rgba(0, 0, 0, 0.8)"} className="Qr-gallery-image" src={url}/>
-                </LazyLoad>
-            )
+            <LazyLoad key={'lazy_gallery_' + index} offsetVertical={200}>
+                <ImageZoom key={'gallery_' + index} zoom={zoomRef.current} background={"rgba(0, 0, 0, 0.8)"} className="Qr-gallery-image" src={url} />
+            </LazyLoad>
+        )
         )
     );
 }

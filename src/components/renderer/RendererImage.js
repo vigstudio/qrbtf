@@ -1,10 +1,10 @@
-import React  from "react";
+import React from "react";
 import {ParamTypes} from "../../constant/ParamTypes";
 import {getTypeTable, QRPointType} from "../../utils/qrcodeHandler";
 import {createRenderer} from "../style/Renderer";
 import {defaultImage} from "../../constant/References";
 
-function listPoints({ qrcode, params, icon }) {
+function listPoints({qrcode, params, icon}) {
     if (!qrcode) return []
 
     const nCount = qrcode.getModuleCount();
@@ -25,7 +25,7 @@ function listPoints({ qrcode, params, icon }) {
 
     if (size <= 0) size = 1.0
 
-    pointList.push(<image key={id++} x="0" y="0" width={nCount} height={nCount} xlinkHref={params[0]}/>);
+    pointList.push(<image key={id++} x="0" y="0" width={nCount} height={nCount} xlinkHref={params[0]} />);
 
     for (let x = 0; x < nCount; x++) {
         for (let y = 0; y < nCount; y++) {
@@ -33,28 +33,28 @@ function listPoints({ qrcode, params, icon }) {
             if (typeTable[x][y] === QRPointType.ALIGN_CENTER || typeTable[x][y] === QRPointType.ALIGN_OTHER || typeTable[x][y] === QRPointType.TIMING) {
                 if (qrcode.isDark(x, y)) {
                     if (type === 0)
-                        pointList.push(<rect opacity={opacity} width={size} height={size} key={id++} fill={otherColorDark} x={x + (1 - size)/2} y={y + (1 - size)/2}/>)
+                        pointList.push(<rect opacity={opacity} width={size} height={size} key={id++} fill={otherColorDark} x={x + (1 - size) / 2} y={y + (1 - size) / 2} />)
                     else if (type === 1)
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColorDark} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColorDark} cx={x + 0.5} cy={y + 0.5} />)
                 } else {
                     if (type === 0)
-                        pointList.push(<rect opacity={opacity} width={size} height={size} key={id++} fill={otherColorLight} x={x + (1 - size)/2} y={y + (1 - size)/2}/>)
+                        pointList.push(<rect opacity={opacity} width={size} height={size} key={id++} fill={otherColorLight} x={x + (1 - size) / 2} y={y + (1 - size) / 2} />)
                     else if (type === 1)
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColorLight} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColorLight} cx={x + 0.5} cy={y + 0.5} />)
                 }
             }
             else if (typeTable[x][y] === QRPointType.POS_CENTER) {
                 if (qrcode.isDark(x, y)) {
                     if (posType === 0) {
-                        pointList.push(<rect width={1} height={1} key={id++} fill={posColor} x={x} y={y}/>);
+                        pointList.push(<rect width={1} height={1} key={id++} fill={posColor} x={x} y={y} />);
                     } else if (posType === 1) {
                         pointList.push(<circle key={id++} fill="white" cx={x + 0.5} cy={y + 0.5} r={5} />)
                         pointList.push(<circle key={id++} fill={posColor} cx={x + 0.5} cy={y + 0.5} r={1.5} />)
-                        pointList.push(<circle key={id++} fill="none" strokeWidth="1" stroke={posColor}  cx={x + 0.5} cy={y + 0.5} r={3} />)
+                        pointList.push(<circle key={id++} fill="none" strokeWidth="1" stroke={posColor} cx={x + 0.5} cy={y + 0.5} r={3} />)
                     } else if (posType === 2) {
                         pointList.push(<circle key={id++} fill="white" cx={x + 0.5} cy={y + 0.5} r={5} />)
                         pointList.push(<circle key={id++} fill={posColor} cx={x + 0.5} cy={y + 0.5} r={1.5} />)
-                        pointList.push(<circle key={id++} fill="none" strokeWidth="0.15" strokeDasharray="0.5,0.5" stroke={posColor}  cx={x + 0.5} cy={y + 0.5} r={3} />)
+                        pointList.push(<circle key={id++} fill="none" strokeWidth="0.15" strokeDasharray="0.5,0.5" stroke={posColor} cx={x + 0.5} cy={y + 0.5} r={3} />)
                         for (let w = 0; w < vw.length; w++) {
                             pointList.push(<circle key={id++} fill={posColor} cx={x + vw[w] + 0.5} cy={y + 0.5} r={0.5} />)
                         }
@@ -68,11 +68,11 @@ function listPoints({ qrcode, params, icon }) {
             else if (typeTable[x][y] === QRPointType.POS_OTHER) {
                 if (qrcode.isDark(x, y)) {
                     if (posType === 0) {
-                        pointList.push(<rect width={1} height={1} key={id++} fill={posColor} x={x} y={y}/>);
+                        pointList.push(<rect width={1} height={1} key={id++} fill={posColor} x={x} y={y} />);
                     }
                 } else {
                     if (posType === 0) {
-                        pointList.push(<rect width={1} height={1} key={id++} fill="white" x={x} y={y}/>);
+                        pointList.push(<rect width={1} height={1} key={id++} fill="white" x={x} y={y} />);
                     }
                 }
 
@@ -80,14 +80,14 @@ function listPoints({ qrcode, params, icon }) {
             else {
                 if (qrcode.isDark(x, y)) {
                     if (type === 0)
-                        pointList.push(<rect opacity={opacity} width={size} height={size} key={id++} fill={otherColorDark} x={x + (1 - size)/2} y={y + (1 - size)/2}/>)
+                        pointList.push(<rect opacity={opacity} width={size} height={size} key={id++} fill={otherColorDark} x={x + (1 - size) / 2} y={y + (1 - size) / 2} />)
                     else if (type === 1)
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColorDark} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColorDark} cx={x + 0.5} cy={y + 0.5} />)
                 } else {
                     if (type === 0)
-                        pointList.push(<rect opacity={opacity} width={size} height={size} key={id++} fill={otherColorLight} x={x + (1 - size)/2} y={y + (1 - size)/2}/>)
+                        pointList.push(<rect opacity={opacity} width={size} height={size} key={id++} fill={otherColorLight} x={x + (1 - size) / 2} y={y + (1 - size) / 2} />)
                     else if (type === 1)
-                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColorLight} cx={x + 0.5} cy={y + 0.5}/>)
+                        pointList.push(<circle opacity={opacity} r={size / 2} key={id++} fill={otherColorLight} cx={x + 0.5} cy={y + 0.5} />)
                 }
 
             }
@@ -101,51 +101,51 @@ function getParamInfo() {
     return [
         {
             type: ParamTypes.UPLOAD_BUTTON,
-            key: '背景图片',
+            key: 'Hình nền',
             default: defaultImage,
         },
         {
             type: ParamTypes.SELECTOR,
-            key: '信息点样式',
+            key: 'Phong cách điểm thông tin',
             default: 0,
             choices: [
-                "矩形",
-                "圆形",
+                "hình chữ nhật",
+                "Dạng hình tròn",
             ]
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: '信息点缩放',
+            key: 'Phóng to điểm thông tin',
             default: 100
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: '信息点不透明度',
+            key: 'Điểm thông tin mờ đục',
             default: 100,
         },
         {
             type: ParamTypes.COLOR_EDITOR,
-            key: '信息点深色',
+            key: 'Thông tin tối',
             default: '#000000'
         },
         {
             type: ParamTypes.COLOR_EDITOR,
-            key: '信息点浅色',
+            key: 'Thông tin ánh sáng',
             default: '#FFFFFF'
         },
         {
             type: ParamTypes.SELECTOR,
-            key: '定位点样式',
+            key: 'Phong cách điểm định vị',
             default: 0,
             choices: [
-                "矩形",
-                "圆形",
-                "行星",
+                "hình chữ nhật",
+                "Dạng hình tròn",
+                "hành tinh",
             ]
         },
         {
             type: ParamTypes.COLOR_EDITOR,
-            key: '定位点颜色',
+            key: 'Màu điểm định vị',
             default: '#000000'
         },
     ];
@@ -160,5 +160,5 @@ const RendererImage = createRenderer({
 export default RendererImage
 
 RendererImage.detail = (
-    <div>加了背景图，试试看还能扫描吗</div>
+    <div>Sau khi thêm bản đồ nền, bạn có thể quét nếu bạn thử không?</div>
 );
