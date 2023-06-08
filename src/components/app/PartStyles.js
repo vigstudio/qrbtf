@@ -11,7 +11,7 @@ const PartStyles = ({setParamInfo}) => {
         setLoaded(true);
     }, [])
 
-    // const styleList = React.createElement(StyleListViewer({setParamInfo}));
+    const styleList = React.createElement(StyleListViewer({setParamInfo}));
 
     return (<div className="Qr-titled" id="Qr-style">
         <div className="Qr-Centered title-margin">
@@ -28,8 +28,7 @@ const PartStyles = ({setParamInfo}) => {
             horizontal={true}
             vertical={false}
             style={{visibility: loaded ? "visible" : "hidden"}}>
-            {/* {styleList} */}
-            <StyleListViewer setParamInfo={setParamInfo} />
+            {styleList}
         </ScrollContainer>
     </div>)
 }
