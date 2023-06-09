@@ -38,7 +38,7 @@ export function saveImg(value, content, width, height, type) {
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
 
-    let ctx = canvas.getContext('2d');
+    let ctx = canvas.getContext('2d', {willReadFrequently: true});
     let img = document.createElement('img');
     img.setAttribute('src', 'data:image/svg+xml;base64,' + btoa(svgData));
 

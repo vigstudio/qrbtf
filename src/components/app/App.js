@@ -1,4 +1,5 @@
-import React, {useCallback, useEffect} from 'react';
+// import React, {useCallback, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import '../Qrcode.css';
 import PartFooter from "./PartFooter";
@@ -8,7 +9,7 @@ import PartParams from "./PartParams";
 import PartDownloadViewer from "../../containers/app/PartDownloadViewer";
 import PartStylesViewer from "../../containers/app/PartStylesViewer";
 import {connect} from 'react-redux';
-// import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import {setScrollbarWidthProp} from "../../utils/util"
 
 // ReactGA.initialize('UA-165845289-1');
@@ -28,6 +29,16 @@ import {setScrollbarWidthProp} from "../../utils/util"
 //     ],
 //     {alwaysSendToDefaultTracker: false}
 // );
+
+ReactGA.initialize([
+    {
+        trackingId: "G-HST94BGP27",
+        gaOptions: {
+            name: 'trackerUA',
+        },
+    },
+]);
+
 
 function App({dispatch}) {
 

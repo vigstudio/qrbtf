@@ -51,7 +51,7 @@ function listPoints({qrcode, params, icon}) {
                     }
                 } else if (posType === 3) {
                     pointList.push(<circle key={id++} fill={posColor} cx={x + 0.5} cy={y + 0.5} r={1.5} />)
-                    pointList.push(<path key={id++} d={sq25} stroke={posColor} strokeWidth={100 / 6 * (1 - (1 - 0.8) * 0.75)} fill="none" transform={'translate(' + String(x - 2.5) + ',' + String(y - 2.5) + ') ' + 'scale(' + String(6 / 100) + ',' + String(6 / 100) + ')'} />)
+                    pointList.push(<path key={id++} d={sq25} stroke={posColor} strokeWidth={100 / 6 * (1 - (1 - 0.8) * 0.75)} fill="none" transform={`translate(${String(x - 2.5)}, ${String(y - 2.5)}) scale(${String(6 / 100)}, ${String(6 / 100)})`} />)
                 }
             }
             else if (qrcode.isDark(x, y) && typeTable[x][y] === QRPointType.POS_OTHER) {
@@ -76,7 +76,7 @@ function listPoints({qrcode, params, icon}) {
                 if (funcType === 1) {
                     let sizeF = 0
                     let colorF = otherColor
-                    let fillF = colorF
+                    // let fillF = colorF
                     let opacityF = Number(qrcode.isDark(x, y));
                     if (dist > 5 / 20 && dist < 8 / 20) {
                         sizeF = 5 / 10

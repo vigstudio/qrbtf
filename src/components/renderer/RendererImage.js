@@ -106,39 +106,39 @@ function getParamInfo() {
         },
         {
             type: ParamTypes.SELECTOR,
-            key: 'Phong cách điểm thông tin',
-            default: 0,
+            key: 'Hình dạng điểm dữ liệu',
+            default: 1,
             choices: [
-                "hình chữ nhật",
+                "Hình chữ nhật",
                 "Dạng hình tròn",
             ]
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: 'Phóng to điểm thông tin',
+            key: 'Kích thước điểm dữ liệu',
             default: 100
         },
         {
             type: ParamTypes.TEXT_EDITOR,
-            key: 'Điểm thông tin mờ đục',
+            key: 'Độ mờ điểm dữ liệu',
             default: 100,
         },
         {
             type: ParamTypes.COLOR_EDITOR,
-            key: 'Thông tin tối',
+            key: 'Điểm dữ liệu tối',
             default: '#000000'
         },
         {
             type: ParamTypes.COLOR_EDITOR,
-            key: 'Thông tin ánh sáng',
+            key: 'Điểm dữ liệu sáng',
             default: '#FFFFFF'
         },
         {
             type: ParamTypes.SELECTOR,
-            key: 'Phong cách điểm định vị',
+            key: 'Hình dạng điểm neo',
             default: 0,
             choices: [
-                "hình chữ nhật",
+                "Hình chữ nhật",
                 "Dạng hình tròn",
                 "hành tinh",
             ]
@@ -160,5 +160,5 @@ const RendererImage = createRenderer({
 export default RendererImage
 
 RendererImage.detail = (
-    <div>Sau khi thêm bản đồ nền, bạn có thể quét nếu bạn thử không?</div>
+    <div>QR Code với ảnh nền tùy chỉnh</div>
 );

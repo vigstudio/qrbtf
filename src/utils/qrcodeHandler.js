@@ -1,6 +1,6 @@
-import { qrcode as QRCodeEncoder } from "./qrcodeEncoder";
+import {qrcode as QRCodeEncoder} from "./qrcodeEncoder";
 import jsQR from "jsqr";
-import { extend } from "./util";
+import {extend} from "./util";
 
 export var QRPointType = {
     DATA: 0,
@@ -17,13 +17,13 @@ export function encodeData(options) {
     if (!options.text || options.text.length <= 0) return null
 
     options = extend({
-        render		: "canvas",
-        width		: 256,
-        height		: 256,
-        typeNumber	: -1,
-        correctLevel	: 1,
-        background      : "#ffffff",
-        foreground      : "#000000"
+        render: "canvas",
+        width: 256,
+        height: 256,
+        typeNumber: -1,
+        correctLevel: 1,
+        background: "#ffffff",
+        foreground: "#000000"
     }, options);
 
     let qrcode = new QRCodeEncoder(options.typeNumber, options.correctLevel)
@@ -59,7 +59,7 @@ export function getTypeTable(qrcode) {
         typeTable[PD[i][0]][PD[i][1]] = QRPointType.POS_CENTER
         for (let r = -4; r <= 4; r++) {
             for (let c = -4; c <= 4; c++) {
-                if (PD[i][0] + r >= 0 && PD[i][0] + r < nCount && PD[i][1] + c >=0 && PD[i][1] + c < nCount)
+                if (PD[i][0] + r >= 0 && PD[i][0] + r < nCount && PD[i][1] + c >= 0 && PD[i][1] + c < nCount)
                     if (!(r === 0 && c === 0))
                         typeTable[PD[i][0] + r][PD[i][1] + c] = QRPointType.POS_OTHER;
             }
@@ -88,7 +88,7 @@ export function getTypeTable(qrcode) {
 
 export function decodeData(file) {
     let canvas = document.createElement('canvas');
-    let ctx = canvas.getContext('2d');
+    let ctx = canvas.getContext('2d', {willReadFrequently: true});
     let img = document.createElement('img');
     const maxSize = 400;
 

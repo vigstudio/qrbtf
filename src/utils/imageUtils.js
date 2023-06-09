@@ -10,7 +10,7 @@ export function isPicture(file) {
 
 export function toBase64(file, aspectRatio) {
     let canvas = document.createElement('canvas');
-    let ctx = canvas.getContext('2d');
+    let ctx = canvas.getContext('2d', {willReadFrequently: true});
     let img = document.createElement('img');
     img.setAttribute('src', URL.createObjectURL(file));
 

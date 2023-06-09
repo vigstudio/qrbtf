@@ -1,7 +1,8 @@
 import {connect} from 'react-redux';
 import PartDownload from "../../components/app/PartDownload";
 import {saveImg, saveSvg} from "../../utils/downloader";
-import {getParamDetailedValue, outerHtml} from "../../utils/util";
+// import {getParamDetailedValue, outerHtml} from "../../utils/util";
+import {outerHtml} from "../../utils/util";
 import {handleDownloadImg, handleDownloadSvg} from "../../utils/gaHelper";
 
 

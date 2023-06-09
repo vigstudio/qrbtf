@@ -6,22 +6,17 @@ import {getExactValue} from "../../../utils/util";
 import ParamIconSrcViewer from "../../../containers/param/disposable/ParamIconSrcViewer";
 
 const IconParams = ({icon, onBlur, onKeyPress}) => {
-    const {enabled, src, scale} = icon;
-    const components = [];
-
-    if (src) { }
-    if (getExactValue(enabled, 0) === 1) {
-        components.push(
+    const {enabled, scale} = icon;
+    return (<>
+        {getExactValue(enabled, 0) === 1 && (
             <FrameworkParam paramName={"Tải icon liên"}>
-                <ParamIconSrcViewer icon={icon} onChange={onBlur} />
+                <ParamIconSrcViewer key={icon.enabled} icon={icon} onChange={onBlur} />
             </FrameworkParam>
-        );
-    }
-
-    if (getExactValue(enabled, 0) !== 0) {
-        components.push(
+        )}
+        {getExactValue(enabled, 0) !== 0 && (
             <FrameworkParam paramName={"Tỷ lệ icon"}>
                 <input
+                    key={icon.enabled}
                     type="number"
                     className="Qr-input small-input"
                     defaultValue={scale}
@@ -29,9 +24,8 @@ const IconParams = ({icon, onBlur, onKeyPress}) => {
                     onKeyPress={(e) => onKeyPress(e, {...icon, scale: e.target.value})}
                 />
             </FrameworkParam>
-        )
-    }
-    return components;
+        )}
+    </>);
 }
 
 const ParamIcon = ({icon, onBlur, onKeyPress}) => (
@@ -43,13 +37,12 @@ const ParamIcon = ({icon, onBlur, onKeyPress}) => (
                 onChange={(e) => onBlur({...icon, enabled: e.target.value})}>
                 <option value={0}>Không có</option>
                 <option value={1}>Tùy chỉnh</option>
-                {/* <option value={2}>WeChat — Nhỏ</option>
-                <option value={3}>WeChat</option>
-                <option value={4}>Thanh toán qua WeChat</option>
-                <option value={5}>Alipay</option> */}
+                <option value={2}>Momo</option>
+                <option value={3}>Zalo Pay</option>
+                <option value={4}>VNPay</option>
             </select>
         </FrameworkParam>
-        <IconParams key={icon} icon={icon} onBlur={onBlur} onKeyPress={onKeyPress} />
+        <IconParams icon={icon} onBlur={onBlur} onKeyPress={onKeyPress} />
     </React.Fragment>
 )
 

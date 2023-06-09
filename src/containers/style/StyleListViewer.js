@@ -57,8 +57,11 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const StyleListViewer = ({setParamInfo}) => {
+    React.useEffect(() => {
+        setParamInfo(paramInfoBuffer, paramValueBuffer);
+    }, [setParamInfo]);
+
     let res = connect(mapStateToProps, mapDispatchToProps)(StyleList)
-    setParamInfo(paramInfoBuffer, paramValueBuffer);
     return res;
 
 }

@@ -8,21 +8,11 @@ const PartFooter = () => (
     <div className="Qr-titled">
         <div className="Qr-Centered Qr-footer note-font">
             <div className="Qr-footer-part">
-                <strong>Tác giả</strong>&emsp;
-                <LinkTrace
-                    href="https://blog.ciaochaos.com/"
-                    rel="noopener noreferrer"
-                    target="_blank">ciaochaos
-                </LinkTrace>&emsp;
-                <LinkTrace
-                    href="https://github.com/CPunisher/"
-                    rel="noopener noreferrer"
-                    target="_blank">CPunisher
-                </LinkTrace>&emsp;
+                <strong>Link:</strong>&emsp;
                 <LinkTrace
                     href="https://nghiane.com"
                     rel="noopener noreferrer"
-                    target="_blank">Nghĩa Nè (Tiếng Việt)
+                    target="_blank">Nghĩa Nè
                 </LinkTrace>
             </div>
 

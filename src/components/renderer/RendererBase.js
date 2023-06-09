@@ -1,9 +1,10 @@
 import React from "react";
 import {ParamTypes} from "../../constant/ParamTypes";
 import {getTypeTable, QRPointType} from "../../utils/qrcodeHandler";
-import {createRenderer, defaultDrawIcon} from "../style/Renderer";
+import {createRenderer} from "../style/Renderer";
+// import {createRenderer, defaultDrawIcon} from "../style/Renderer";
 import {getExactValue, rand} from "../../utils/util";
-import LinkTrace from "../link/LinkTrace";
+// import LinkTrace from "../link/LinkTrace";
 
 function listPoints({qrcode, params, icon}) {
     if (!qrcode) return []
@@ -11,10 +12,11 @@ function listPoints({qrcode, params, icon}) {
 
     const iconEnabled = getExactValue(icon.enabled, 0);
 
+    // const {src, scale} = icon;
     const {src, scale} = icon;
-
+    if (src) { }
     const iconSize = Number(nCount * (scale > .33 ? .33 : scale));
-    const iconXY = (nCount - iconSize) / 2;
+    // const iconXY = (nCount - iconSize) / 2;
 
     function nearIcon(x, y) {
         return Math.pow((nCount - 1) / 2 - x, 2) + Math.pow((nCount - 1) / 2 - y, 2) < Math.pow(iconSize / 2, 2);
@@ -67,7 +69,7 @@ function listPoints({qrcode, params, icon}) {
                     }
                 } else if (posType === 3) {
                     pointList.push(<circle key={id++} fill={posColor} cx={x + 0.5} cy={y + 0.5} r={1.5} />)
-                    pointList.push(<path key={id++} d={sq25} stroke={posColor} strokeWidth={100 / 6 * (1 - (1 - size) * 0.75)} fill="none" transform={'translate(' + String(x - 2.5) + ',' + String(y - 2.5) + ') ' + 'scale(' + String(6 / 100) + ',' + String(6 / 100) + ')'} />)
+                    pointList.push(<path key={id++} d={sq25} stroke={posColor} strokeWidth={100 / 6 * (1 - (1 - size) * 0.75)} fill="none" transform={`translate(${String(x - 2.5)}, ${String(y - 2.5)}) scale(${String(6 / 100)}, ${String(6 / 100)})`} />)
                 }
             }
             else if (typeTable[x][y] === QRPointType.POS_OTHER) {
